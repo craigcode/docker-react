@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t craigmartin/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run craigmartin/docker-react npm run test -- --coverage
